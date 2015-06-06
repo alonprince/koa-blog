@@ -1,6 +1,14 @@
+var router = require('koa-router')();
 
 module.exports = function(app) {
-    app.use(function *(){
-      this.body = '<h1>Hello</h1>';
+    router.get('/', function *(next) {
+        this.render('index.jade');
     });
+
+    router.get('/admin', function *(next) {
+    })
+
+
+    app.use(router.routes())
+        .use(router.allowedMethods());
 }
