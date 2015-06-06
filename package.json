@@ -1,0 +1,34 @@
+{
+  "name": "phishing-blog",
+  "version": "1.0.0",
+  "description": "personal blog",
+  "main": "app.js",
+  "scripts": {
+    "start": "make",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alonprince/koa-blog.git"
+  },
+  "keywords": [
+    "koa"
+  ],
+  "author": "phishing<alonprince@hotmial.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alonprince/koa-blog/issues"
+  },
+  "homepage": "https://github.com/alonprince/koa-blog#readme",
+  "dependencies": {
+    "jade": "^1.10.0",
+    "koa": "^0.21.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-develop-server": "^0.4.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2"
+  }
+}
