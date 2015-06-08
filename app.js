@@ -1,5 +1,6 @@
 var app = require('koa')(),
-    jade = require('koa-jade');
+    jade = require('koa-jade'),
+    serve = require('koa-static');
 var [port = 8000] = [process.env.PORT];
 
 // 设置render参数
@@ -16,6 +17,9 @@ app.use(jade.middleware({
     //     { _: require('lodash') }
     // ]
 }))
+
+app.use(serve('bower_components/'));
+app.use(serve('public/'));
 
 require('./config/router.js')(app);
 
