@@ -12,7 +12,7 @@ var devPath = {
     server: ['router/**/*.js'],
     index: 'app.js',
     serverStart: 'app.es6.js',
-    less: 'public/less/**/*.less'
+    less: 'public/less/*.less'
 }
 var outPath = {
     client: 'public/js/',
