@@ -1,4 +1,4 @@
 install : all
 all: 
-	# gulp 'server:translate'
+	gulp 'client'
 	babel-node app.js --harmony

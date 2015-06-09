@@ -1,0 +1,13 @@
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.welcome {
+  height: 100vh;
+  background: #ccc;
+  background: url(../img/bg_tree.jpg) center no-repeat;
+  background-size: 100%;
+  text-align: center;
+}

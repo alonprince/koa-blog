@@ -3,18 +3,31 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
-    prefix = require('gulp-autoprefixer');
+    LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+    autoprefix= new LessPluginAutoPrefix({ browsers: ["last 2 versions"] });
 
 
 var devPath = {
     client: 'public/es6/*',
     server: ['router/**/*.js'],
     index: 'app.js',
-    serverStart: 'app.es6.js'
+    serverStart: 'app.es6.js',
+    less: 'public/less/**/*.less'
 }
 var outPath = {
-    client: 'public/js/'
+    client: 'public/js/',
+    css: 'public/css/'
 }
+
+gulp.task('less', function() {
+    return gulp.src(devPath.less)
+            .pipe(less({
+                plugins: [autoprefix]
+            }))
+            .pipe(gulp.dest(outPath.css));
+})
+
+gulp.task('client', ['less']);
 
 // gulp.task('server:translate', ['server'], function() {
 //     return gulp.src(devPath.index)
