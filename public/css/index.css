@@ -7,11 +7,22 @@ div {
 .fr {
   float: right;
 }
+.footer {
+  text-align: center;
+  background: #444444;
+  height: 80px;
+  font-size: 14px;
+}
+.footer a {
+  color: #eeeeee;
+  line-height: 80px;
+}
 .welcome {
   height: 100vh;
   background: #ccc;
   background: url(../img/bg_tree.jpg) center no-repeat;
   background-size: 100%;
+  background-attachment: fixed;
   text-align: center;
   position: relative;
 }
@@ -19,7 +30,7 @@ div {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   left: 0px;
   top: 0px;
 }
