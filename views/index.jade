@@ -2,12 +2,10 @@ extends extends/layout.jade
 block import
     link(rel="stylesheet", href="css/index.css")
 block content
-    section.container-fluid.welcome
-        div.shadow
-        div.row
-            div.col-xs-6.col-xs-offset-3
-                h1 Phishing's Blog
-        div.row
-            div.col-xs-6.col-xs-offset-3
-                h3 blog.phishing.wang
-    section.container-fluid.content
+    header.white.bg-gray.bg-cover.bg-center.welcome
+        div.center.px2.py4.shadow
+            h1.h1.h0-responsive.caps.mt4.mb0.regular PHISHING
+            p.h3 A Blog Write By Phishing
+            a.h3.button.mb4(href="#") Look
+
+    section.container.content
