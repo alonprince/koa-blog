@@ -13,8 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "~1.0.3",
-    "bootstrap": "~3.3.4",
-    "basscss": "~6.1.6"
+    "basscss": "~6.1.6",
+    "jquery": "~2.1.4"
   }
 }
