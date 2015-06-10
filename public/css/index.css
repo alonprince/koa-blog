@@ -8,7 +8,7 @@ div {
   background-attachment: fixed;
 }
 .no-decoration {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .footer {
   height: 80px;
