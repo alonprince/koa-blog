@@ -4,9 +4,11 @@ html
         title Phishing
         meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
         link(rel="stylesheet", href="basscss/css/basscss.min.css")
-        script(src="jquery/dist/jquery.min.js")
-        block import
+        block css
     body
         block content
         footer.center.bg-navy.full-width.footer
             a.silver.h4(href="/about") about me
+
+        script(src="jquery/dist/jquery.min.js")
+        block js

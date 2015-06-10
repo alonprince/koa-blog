@@ -7,8 +7,9 @@ var [port = 8000] = [process.env.PORT];
 app.use(jade.middleware({
     viewPath: `${__dirname}/views`,
     debug: false,
-    pretty: true,
+    pretty: '  ',
     compileDebug: false,
+    noCache: process.env === 'development',
     // locals: global_locals_for_all_pages,
     basedir: `${__dirname}/views/extends`,
     // helperPath: [
@@ -20,6 +21,7 @@ app.use(jade.middleware({
 
 app.use(serve('bower_components/'));
 app.use(serve('public/'));
+app.use(serve('node_modules/gulp-babel/node_modules/babel-core/browser.min.js'))
 
 require('./config/router.js')(app);
 

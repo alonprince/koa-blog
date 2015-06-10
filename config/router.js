@@ -3,7 +3,9 @@ var router = require('koa-router')();
 module.exports = function(app) {
     // home
     router.get('/', function *(next) {
-        this.render('index');
+        this.render('index', {}, {
+            pretty: '  '
+        });
     });
 
     // admin

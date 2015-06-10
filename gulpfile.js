@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
-    babel = require('gulp-babel'),
     rename = require('gulp-rename'),
+    coffee = require('gulp-coffee'),
     sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
     LessPluginAutoPrefix = require('less-plugin-autoprefix'),
@@ -8,10 +8,9 @@ var gulp = require('gulp'),
 
 
 var devPath = {
-    client: 'public/es6/*',
+    coffee: 'public/coffee/**/*.coffee',
     server: ['router/**/*.js'],
     index: 'app.js',
-    serverStart: 'app.es6.js',
     less: 'public/less/*.less'
 }
 var outPath = {
@@ -27,7 +26,13 @@ gulp.task('less', function() {
             .pipe(gulp.dest(outPath.css));
 })
 
-gulp.task('client', ['less']);
+gulp.task('coffee', function() {
+    return gulp.src(devPath.coffee)
+            .pipe(coffee())
+            .pipe(gulp.dest(outPath.client));
+})
+
+gulp.task('client', ['less', 'coffee']);
 
 // gulp.task('server:translate', ['server'], function() {
 //     return gulp.src(devPath.index)

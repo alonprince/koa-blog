@@ -1,16 +1,22 @@
 extends extends/layout.jade
-block import
+block css
     link(rel="stylesheet", href="css/index.css")
 block content
-    header.white.bg-gray.bg-cover.bg-center.welcome.bg-fixed
+    header.white.bg-gray.bg-cover.bg-center.welcome.bg-fixed#hedaer
         div.center.px2.py4.shadow.full-height
             h1.h1.h0-responsive.caps.mt4.mb0.regular PHISHING
             p.h3 A Blog Write By Phishing
             a.h3.button.mt1.button-outline(href="#") Look
     section.container.content.clearfix.p4
-        +article('this is a title', 'these are content;these are content;these are content;these are content;these are content;these are content;')
-        +article('this is a title', 'these are content;these are content;these are content;these are content;these are content;these are content;')
-mixin article(title, cont)
+        +article('#', 'this is a title', 'these are content;these are content;these are content;these are content;these are content;these are content;')
+        +article('#', 'this is a title', 'these are content;these are content;these are content;these are content;these are content;these are content;')
+mixin article(href, title, cont)
     .article-item.mx-auto.sm-col-8.py2
-        h3.h3.regular.mb2.bold.ml2= title
-        p.h4.regular= cont
+        h3.h3.mb2.ml2
+            a.bold.regular.black(href=href)= title
+        p.h4.regular.gray= cont
+
+block js
+    script(src="js/index.js")
+    script.
+        Phishing.main.init();
