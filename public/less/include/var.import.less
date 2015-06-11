@@ -13,5 +13,8 @@ div {
 .no-decoration:hover {
     text-decoration: none;
 }
+.transition(@during: 0.5s, @delay: 0s) {
+    transition: @during @delay all ease;
+}
 
 @footer-height: 80px;

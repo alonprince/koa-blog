@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
     LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-    autoprefix= new LessPluginAutoPrefix({ browsers: ["last 2 versions"] });
+    autoprefix= new LessPluginAutoPrefix({ browsers: ["> 5%"] });
 
 
 var devPath = {

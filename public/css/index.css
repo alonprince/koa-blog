@@ -7,7 +7,7 @@ div {
 .bg-fixed {
   background-attachment: fixed;
 }
-.no-decoration {
+.no-decoration:hover {
   text-decoration: none;
 }
 .footer {
@@ -20,4 +20,8 @@ div {
 }
 .shadow {
   background: rgba(0, 0, 0, 0.2);
+}
+.article-item {
+  -webkit-transition: 0.5s 0s all ease;
+          transition: 0.5s 0s all ease;
 }
