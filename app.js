@@ -3,6 +3,14 @@ var app = require('koa')(),
     serve = require('koa-static');
 var [port = 8000] = [process.env.PORT];
 
+// 记录日志
+app.use(function *(next){
+  var start = new Date;
+  yield next;
+  var ms = new Date - start;
+  console.log(`${this.method} ${this.url} - ${ms}ms`);
+});
+
 // 设置render参数
 app.use(jade.middleware({
     viewPath: `${__dirname}/views`,
