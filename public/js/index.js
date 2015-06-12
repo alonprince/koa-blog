@@ -4,20 +4,28 @@
   Phishing.main = (function() {
     var init;
     init = function() {
+      var $article, $hShadow, $header, oldScroll;
+      $header = $('#header');
+      $hShadow = $('#header .shadow');
+      $article = $('.article-item');
+      oldScroll = 0;
       return $('body').on('wheel', function(e) {
-        (function() {
-          var $cuTarget, headerHeight, opcity, percent, scrollTop;
-          $cuTarget = $(e.currentTarget);
-          scrollTop = $cuTarget.scrollTop();
-          headerHeight = $('#header').height();
-          percent = scrollTop / headerHeight;
-          if (percent > 1) {
-            percent = 1;
-          }
-          opcity = percent * 0.7 + 0.2;
-          return $('#header .shadow').css('background', "rgba(0, 0, 0, " + opcity + ")");
-        })();
-        return (function() {})();
+        var $cuTarget, headerHeight, scrollTop;
+        $cuTarget = $(e.currentTarget);
+        scrollTop = $cuTarget.scrollTop();
+        if (Math.abs(scrollTop - oldScroll) > 40) {
+          headerHeight = $header.height();
+          oldScroll = scrollTop;
+          return (function() {
+            var opcity, percent;
+            percent = scrollTop / headerHeight;
+            if (percent > 1) {
+              percent = 1;
+            }
+            opcity = percent * 0.7 + 0.2;
+            return $hShadow.css('background', "rgba(0, 0, 0, " + opcity + ")");
+          })();
+        }
       });
     };
     return {

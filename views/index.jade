@@ -8,8 +8,8 @@ block content
             p.h3 A Blog Write By Phishing
             a.h3.button.mt1.button-outline(href="#") Look
     section.container.content.clearfix.p4#content
-        each i in [{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;'},{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;'},{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;'}]
-            .article-item.mx-auto.sm-col-8.py2.op0
+        each i in [{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;', sr: 'scale up 20%'},{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;', sr: 'roll 15deg'},{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;', sr: 'spin 180deg'}]
+            .article-item.mx-auto.sm-col-8.py2.op03(data-sr=i.sr)
                 h3.h1.mb2.ml2
                     a.bold.regular.black.no-decoration(href=i.href)= i.title
                 p.h4.regular.gray= i.cont
@@ -17,6 +17,7 @@ block content
 block js
     script(src="js/index.js")
     script.
+        window.sr = new scrollReveal()
         $(function() {
             Phishing.main.init();
         })

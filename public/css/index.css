@@ -13,6 +13,9 @@ div {
 .op0 {
   opacity: 0;
 }
+.op03 {
+  opacity: 0.3;
+}
 .op1 {
   opacity: 1;
 }
@@ -23,6 +26,8 @@ div {
 .welcome {
   height: 100vh;
   background-image: url(../img/bg_tree.jpg);
+  -webkit-transition: 0.5s 0s all ease;
+          transition: 0.5s 0s all ease;
 }
 .shadow {
   background: rgba(0, 0, 0, 0.2);
@@ -30,4 +35,7 @@ div {
 .article-item {
   -webkit-transition: 0.5s 0s all ease;
           transition: 0.5s 0s all ease;
+}
+.article-item:hover {
+  opacity: 1;
 }
