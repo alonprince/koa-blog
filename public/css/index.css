@@ -25,7 +25,7 @@ div {
 }
 .welcome {
   height: 100vh;
-  background-image: url(../img/bg_tree.jpg);
+  background-image: url(../img/bg_beach.jpg);
   -webkit-transition: 0.5s 0s all ease;
           transition: 0.5s 0s all ease;
 }
