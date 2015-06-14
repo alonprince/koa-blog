@@ -2,7 +2,7 @@ var app = require('koa')(),
     jade = require('koa-jade'),
     serve = require('koa-static'),
     bodyParser = require('koa-bodyparser');
-var [port = 8000] = [process.env.PORT];
+var port = process.env.PORT || 8000;
 
 // 记录日志
 app.use(function *(next){
@@ -43,4 +43,6 @@ require('./config/router.js')(app);
 
 
 app.listen(port);
+
+
 console.log(`Your app listen on ${port}`);

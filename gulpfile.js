@@ -3,15 +3,19 @@ var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
     sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
-    LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+    LessPluginAutoPrefix = require('less-plugin-autoprefix')
+    server = require('gulp-develop-server'),
     autoprefix= new LessPluginAutoPrefix({ browsers: ["> 5%"] });
 
 
 var devPath = {
     coffee: 'public/coffee/**/*.coffee',
-    server: ['router/**/*.js'],
     index: 'app.js',
-    less: 'public/less/*.less'
+    less: 'public/less/*.less',
+    serverStart: 'app.js',
+    conf: 'config/**/*.js',
+    views: 'views/**/*.jade',
+    img: 'public/img/'
 }
 var outPath = {
     client: 'public/js/',
@@ -34,30 +38,22 @@ gulp.task('coffee', function() {
 
 gulp.task('client', ['less', 'coffee']);
 
-// gulp.task('server:translate', ['server'], function() {
-//     return gulp.src(devPath.index)
-//             .pipe(sourcemaps.init())
-//             .pipe(babel())
-//             .pipe(rename(devPath.serverStart))
-//             .pipe(sourcemaps.write())
-//             .pipe(gulp.dest('./'));
-// })
+gulp.task('server:start', function() {
+    server.listen({
+        path: devPath.serverStart
+    });
+})
 
-// gulp.task('server', function() {
-//     return gulp.src(devPath.server)
-//             .pipe(sourcemaps.init())
-//                 .pipe(babel())
-//             .pipe(sourcemaps.write())
-//             .pipe(gulp.dest('bin/'));
-// })
+var glob = [];
 
-// gulp.task('server:start', ['server:translate'], function() {
-//     server.listen({
-//         path: devPath.serverStart,
-//         execArgv: [ '--harmony' ]
-//     });
-// })
+for(i in devPath) {
+    glob.push(devPath[i]);
+}
 
-// gulp.task('server:restart', function() {
-//     gulp.watch([devPath.serverStart], server.restart);
-// })
+gulp.task('server:restart', function() {
+    gulp.watch(glob, ['client'], server.restart);
+})
+
+gulp.task('server', ['server:start', 'server:restart']);
+
+gulp.task('default', ['client', 'server']);
