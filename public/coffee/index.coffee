@@ -6,6 +6,9 @@ Phishing.main = do ->
         $article = $ '.article-item' 
         oldScroll = 0;
 
+        window.onresize = ->
+            $header.height document.documentElement.clientHeight
+
         # 滚动条事件
         $('body').on 'wheel', (e) ->
             $cuTarget = $ e.currentTarget

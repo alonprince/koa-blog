@@ -19,6 +19,7 @@ block js
     script(src="/scrollReveal.js/dist/scrollReveal.min.js")
     script.
         window.sr = new scrollReveal()
+        $('#header').height(document.documentElement.clientHeight);
         $(function() {
             Phishing.main.init();
         })
