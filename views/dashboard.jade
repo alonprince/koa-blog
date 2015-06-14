@@ -1,0 +1,19 @@
+extends extends/layout.jade
+block css
+    link(rel="stylesheet", href="/css/dashboard.css")
+block content
+    .overflow-scroll.p4
+        table.table-light.overflow-hidden.bg-white.border.rounded.center
+            thead.bg-darken-1
+                tr
+                    th.center 名称
+                    th.center 时间 
+                    th.center 操作
+            tbody
+                each i in [{title: 'a', time: '2015-05-22', id: "123123"}, {title: 'a', time: '2015-05-22', id: "123123"}, {title: 'a', time: '2015-05-22', id: "123123"}]
+                    tr(data-id=i.id)
+                        td= i.title
+                        td= i.time
+                        td
+                            a.edit-article.button.mr1(href="#") 修改
+                            a.delete-article.button(href="#") 删除 

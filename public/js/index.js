@@ -13,7 +13,7 @@
         var $cuTarget, headerHeight, scrollTop;
         $cuTarget = $(e.currentTarget);
         scrollTop = $cuTarget.scrollTop();
-        if (Math.abs(scrollTop - oldScroll) > 40) {
+        if (Math.abs(scrollTop - oldScroll) > 50) {
           headerHeight = $header.height();
           oldScroll = scrollTop;
           return (function() {

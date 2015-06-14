@@ -10,12 +10,28 @@ module.exports = function(app) {
 
     // admin
     router.get('/admin', function *(next) {
-        this.render('admin');
+        this.render('admin', {}, {
+            pretty: '  '
+        });
+    })
+
+    router.post('/admin/login', function *(next) {
+        if (this.body.username === 'admin' && this.body.password === 'wangheng') {
+            this.redirect('/admin/dashboard');
+        };
+    })
+
+    router.get('/admin/dashboard', function *(next) {
+        this.render('dashboard', {}, {
+            pretty: '  '
+        });
     })
 
     // about
     router.get('/about', function *(next) {
-        this.render('about');
+        this.render('about', {}, {
+            pretty: '  '
+        });
     })
 
     // article

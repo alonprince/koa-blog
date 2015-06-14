@@ -1,6 +1,7 @@
 var app = require('koa')(),
     jade = require('koa-jade'),
-    serve = require('koa-static');
+    serve = require('koa-static'),
+    bodyParser = require('koa-bodyparser');
 var [port = 8000] = [process.env.PORT];
 
 // 记录日志
@@ -9,6 +10,13 @@ app.use(function *(next){
   yield next;
   var ms = new Date - start;
   console.log(`${this.method} ${this.url} - ${ms}ms`);
+});
+
+app.use(bodyParser());
+
+app.use(function *(next) {
+    this.body = this.request.body;
+    yield next;
 });
 
 // 设置render参数
