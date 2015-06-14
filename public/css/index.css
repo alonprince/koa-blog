@@ -23,6 +23,10 @@ div {
   height: 80px;
   line-height: 80px;
 }
+html,
+body {
+  height: 100%;
+}
 .welcome {
   background-image: url(../img/bg_beach.jpg);
   -webkit-transition: 0.5s 0s all ease;

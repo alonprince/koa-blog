@@ -2,7 +2,7 @@ extends extends/layout.jade
 block css
     link(rel="stylesheet", href="/css/index.css")
 block content
-    header.white.bg-gray.bg-cover.bg-center.welcome.bg-fixed#header
+    header.white.bg-gray.bg-cover.bg-center.welcome.bg-fixed.full-height#header
         div.center.px2.py4.shadow.full-height
             h1.h1.h0-responsive.caps.mt4.mb0.regular PHISHING
             p.h3 A Blog Write By Phishing
@@ -19,7 +19,6 @@ block js
     script(src="/scrollReveal.js/dist/scrollReveal.min.js")
     script.
         window.sr = new scrollReveal()
-        $('#header').height(document.documentElement.clientHeight);
         $(function() {
             Phishing.main.init();
         })

@@ -9,9 +9,6 @@
       $hShadow = $('#header .shadow');
       $article = $('.article-item');
       oldScroll = 0;
-      window.onresize = function() {
-        return $header.height(document.documentElement.clientHeight);
-      };
       return $('body').on('wheel', function(e) {
         var $cuTarget, headerHeight, scrollTop;
         $cuTarget = $(e.currentTarget);
