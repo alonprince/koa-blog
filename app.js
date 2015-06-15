@@ -1,3 +1,5 @@
+"use strict"
+
 var app = require('koa')(),
     jade = require('koa-jade'),
     serve = require('koa-static'),

@@ -1,9 +1,11 @@
+"use strict"
+
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
     coffee = require('gulp-coffee'),
     sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
-    LessPluginAutoPrefix = require('less-plugin-autoprefix')
+    LessPluginAutoPrefix = require('less-plugin-autoprefix'),
     server = require('gulp-develop-server'),
     autoprefix= new LessPluginAutoPrefix({ browsers: ["> 5%"] });
 
@@ -46,7 +48,7 @@ gulp.task('server:start', function() {
 
 var glob = [];
 
-for(i in devPath) {
+for(let i in devPath) {
     glob.push(devPath[i]);
 }
 
