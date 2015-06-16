@@ -6,6 +6,8 @@ var app = require('koa')(),
     bodyParser = require('koa-bodyparser');
 var port = process.env.PORT || 8000;
 
+app.keys = ['phishing']
+
 // 记录日志
 app.use(function *(next){
   var start = new Date;

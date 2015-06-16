@@ -12,6 +12,12 @@ module.exports = function(app) {
 
     // admin
     router.get('/admin', function *(next) {
+        const isAdmin = this.cookies.get('isAdmin', {
+            signed: true
+        });
+        if (isAdmin === 'yes he is') {
+            this.redirect('/admin/dashboard');
+        };
         this.render('admin', {}, {
             pretty: '  '
         });
@@ -19,11 +25,21 @@ module.exports = function(app) {
 
     router.post('/admin/login', function *(next) {
         if (this.body.username === 'admin' && this.body.password === 'wangheng') {
+            this.cookies.set('isAdmin', 'yes he is', {
+                signed: true,
+                expires: new Date(Date.now() + 7 * 24 * 3600000)
+            });
             this.redirect('/admin/dashboard');
         };
     })
 
     router.get('/admin/dashboard', function *(next) {
+        const isAdmin = this.cookies.get('isAdmin', {
+            signed: true
+        });
+        if (isAdmin !== 'yes he is') {
+            this.redirect('/admin');
+        };
         this.render('dashboard', {}, {
             pretty: '  '
         });
