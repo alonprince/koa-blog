@@ -1,6 +1,10 @@
 div {
   box-sizing: border-box;
 }
+html,
+body {
+  height: 100%;
+}
 .full-height {
   height: 100%;
 }
@@ -22,10 +26,6 @@ div {
 .footer {
   height: 80px;
   line-height: 80px;
-}
-html,
-body {
-  height: 100%;
 }
 .welcome {
   background-image: url(../img/bg_beach.jpg);
