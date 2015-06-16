@@ -53,7 +53,8 @@ for(let i in devPath) {
 }
 
 gulp.task('server:restart', function() {
-    gulp.watch(glob, ['client'], server.restart);
+    var watcher = gulp.watch(glob, ['client']);
+    watcher.on('change', server.restart);
 })
 
 gulp.task('server', ['server:start', 'server:restart']);
