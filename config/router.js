@@ -1,6 +1,7 @@
 "use strict"
 
-var router = require('koa-router')();
+var router = require('koa-router')(),
+    auth   = require('../middleware/auth.js');
 
 module.exports = function(app) {
     // home
@@ -11,13 +12,7 @@ module.exports = function(app) {
     });
 
     // admin
-    router.get('/admin', function *(next) {
-        const isAdmin = this.cookies.get('isAdmin', {
-            signed: true
-        });
-        if (isAdmin === 'yes he is') {
-            this.redirect('/admin/dashboard');
-        };
+    router.get('/admin', auth.goDash, function *(next) {
         this.render('admin', {}, {
             pretty: '  '
         });
@@ -33,13 +28,7 @@ module.exports = function(app) {
         };
     })
 
-    router.get('/admin/dashboard', function *(next) {
-        const isAdmin = this.cookies.get('isAdmin', {
-            signed: true
-        });
-        if (isAdmin !== 'yes he is') {
-            this.redirect('/admin');
-        };
+    router.get('/admin/dashboard', auth.isLogin, function *(next) {
         this.render('dashboard', {}, {
             pretty: '  '
         });
