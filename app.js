@@ -45,6 +45,7 @@ app.use(serve('node_modules/gulp-babel/node_modules/babel-core/browser.min.js'))
 
 require('./config/router.js')(app);
 
+console.log(app.env);
 
 app.listen(port);
 
