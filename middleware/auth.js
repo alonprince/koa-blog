@@ -1,3 +1,4 @@
+"use strict"
 var isLogin = function *(next) {
     const isAdmin = this.cookies.get('isAdmin', {
         signed: true
