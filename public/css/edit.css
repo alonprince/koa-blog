@@ -23,3 +23,14 @@ body {
 .op1 {
   opacity: 1;
 }
+.editor {
+  padding-top: 52px;
+}
+.editor #text-input {
+  resize: none;
+  border: none;
+}
+.editor .markdown-body {
+  border-width: 3px;
+  overflow: scroll !important;
+}

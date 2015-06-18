@@ -1,0 +1,28 @@
+extends extends/layout.jade
+block css
+    link(rel="stylesheet", href="/css/edit.css")
+    link(rel="stylesheet", href="/github-markdown-css/github-markdown.css")
+block content
+    .full-height.relative
+        nav.white.bg-black.clearfix.absolute.left-0.right-0.full-width
+            .sm-col
+            .sm-col-right
+                a.button.bg-gray.m1 cancel
+                a.button.m1 save
+        .editor.full-height
+            textarea#text-input.left.full-height.half-width.p2(oninput="this.editor.update()", rows="6", cols="60") Type **Markdown** here.
+            .markdown-body.right.full-height.half-width.border-left.border-olive.p2
+                #preview
+
+block js
+    script(src="/js/markdown.js")
+    script.
+        function Editor(input, preview) {
+            this.update = function () {
+              preview.innerHTML = markdown.toHTML(input.value);
+            };
+            input.editor = this;
+            this.update();
+        }
+        var $ = function (id) { return document.getElementById(id); };
+        new Editor($("text-input"), $("preview"));

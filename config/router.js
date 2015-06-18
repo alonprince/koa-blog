@@ -34,6 +34,12 @@ module.exports = function(app) {
         });
     })
 
+    router.get('/admin/edit/:id', auth.isLogin, function *(next) {
+        this.render('edit', {}, {
+            pretty: '  '
+        })
+    })
+
     // about
     router.get('/about', function *(next) {
         this.render('about', {}, {
