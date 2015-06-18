@@ -1,7 +1,14 @@
 "use strict"
 
 var router = require('koa-router')(),
-    auth   = require('../middleware/auth.js');
+    auth   = require('../middleware/auth.js'),
+    admin  = require('../controllor/admin.js');
+
+var num = 0;
+
+var _getNewArticleId = function() {
+    return num;
+}
 
 module.exports = function(app) {
     // home
@@ -12,33 +19,17 @@ module.exports = function(app) {
     });
 
     // admin
-    router.get('/admin', auth.goDash, function *(next) {
-        this.render('admin', {}, {
-            pretty: '  '
-        });
-    })
+    router.get('/admin', auth.goDash, admin.adminPage);
 
-    router.post('/admin/login', function *(next) {
-        if (this.body.username === 'admin' && this.body.password === 'wangheng') {
-            this.cookies.set('isAdmin', 'yes he is', {
-                signed: true,
-                expires: new Date(Date.now() + 7 * 24 * 3600000)
-            });
-            this.redirect('/admin/dashboard');
-        };
-    })
+    router.post('/admin/login', admin.adminLogin)
 
-    router.get('/admin/dashboard', auth.isLogin, function *(next) {
-        this.render('dashboard', {}, {
-            pretty: '  '
-        });
-    })
+    router.get('/admin/dashboard', auth.isLogin, admin.dashboard)
 
-    router.get('/admin/edit/:id', auth.isLogin, function *(next) {
-        this.render('edit', {}, {
-            pretty: '  '
-        })
-    })
+    router.get('/admin/edit/:id', auth.isLogin, admin.editPage)
+
+
+
+    router.get('/admin/add/article', auth.isLogin, admin.addArticle);
 
     // about
     router.get('/about', function *(next) {

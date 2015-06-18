@@ -2,6 +2,10 @@ extends extends/layout.jade
 block css
     link(rel="stylesheet", href="/css/dashboard.css")
 block content
+    nav.white.bg-black.clearfix
+        .sm-col
+        .sm-col-right
+            a.button.m1(href="/admin/add/article") Add
     .overflow-scroll.p4.full-height
         table.table-light.overflow-hidden.bg-white.border.rounded.center
             thead.bg-darken-1

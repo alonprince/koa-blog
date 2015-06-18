@@ -17,7 +17,8 @@ var devPath = {
     serverStart: 'app.js',
     conf: 'config/**/*.js',
     views: 'views/**/*.jade',
-    img: 'public/img/'
+    img: 'public/img/',
+    controllor: 'controllor/**/*.js'
 }
 var outPath = {
     client: 'public/js/',
