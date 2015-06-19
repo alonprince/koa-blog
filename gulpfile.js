@@ -18,7 +18,9 @@ var devPath = {
     conf: 'config/**/*.js',
     views: 'views/**/*.jade',
     img: 'public/img/',
-    controllor: 'controllor/**/*.js'
+    controllor: 'controllor/**/*.js',
+    model: 'model/**/*.js',
+    schemas: 'schemas/**/*.js'
 }
 var outPath = {
     client: 'public/js/',
