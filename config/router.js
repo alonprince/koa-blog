@@ -2,7 +2,8 @@
 
 var router = require('koa-router')(),
     auth   = require('../middleware/auth.js'),
-    admin  = require('../controllor/admin.js');
+    admin  = require('../controllor/admin.js'),
+    editor = require('../controllor/editor.js');
 
 var num = 0;
 
@@ -25,11 +26,12 @@ module.exports = function(app) {
 
     router.get('/admin/dashboard', auth.isLogin, admin.dashboard)
 
-    router.get('/admin/edit/:id', auth.isLogin, admin.editPage)
-
-
+    router.get('/admin/edit/:id', auth.isLogin, admin.editPage);
 
     router.get('/admin/add/article', auth.isLogin, admin.addArticle);
+
+    // CURD
+    router.post('/admin/add/article/:id', auth.isLogin, editor.saveArticle);
 
     // about
     router.get('/about', function *(next) {

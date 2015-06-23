@@ -19,7 +19,9 @@ module.exports = {
         });
     },
     editPage: function *(next) {
-        this.render('edit', {}, {
+        this.render('edit', {
+            id: this.params.id
+        }, {
             pretty: '  '
         })
     },

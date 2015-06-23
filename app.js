@@ -3,8 +3,19 @@
 var app = require('koa')(),
     jade = require('koa-jade'),
     serve = require('koa-static'),
-    bodyParser = require('koa-bodyparser');
+    bodyParser = require('koa-bodyparser'),
+    mongoose = require('mongoose');
 var port = process.env.PORT || 8000;
+
+const MONGO_URL = 'mongodb://localhost/blog';
+
+mongoose.connect(MONGO_URL);
+
+var db = mongoose.connection;
+
+db.once('open', function() {
+    console.log('connect to mongodb');
+})
 
 app.keys = ['phishing']
 
