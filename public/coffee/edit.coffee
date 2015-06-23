@@ -15,7 +15,8 @@ do ->
         value = encodeURIComponent oInput.value
         id = this.dataset.id
         $.post "/admin/add/article/#{id}", {
-            value: value
+            content: value
+            sequence: id
         } 
         .done (result) ->
             console.log result

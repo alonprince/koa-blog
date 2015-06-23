@@ -1,7 +1,7 @@
 var Schema = require('mongoose').Schema;
 
 var Post = new Schema({
-    no: { tpye: Number, min: 0 },
+    sequence: { tpye: Number, min: 0 },
     content: String,
     created: Date,
     history: { type: Array, default:[] },

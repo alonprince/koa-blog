@@ -1,6 +1,5 @@
-var postSchema = require('../schemas/post.js'),
-    model = require('mongoose').model;
+var postSchema = require('../schemas/post.js');
 
-var Post = model('post', postSchema);
+var Post = require('mongoose').model('Post', postSchema);
 
 module.exports = Post;

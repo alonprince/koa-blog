@@ -25,7 +25,8 @@
       value = encodeURIComponent(oInput.value);
       id = this.dataset.id;
       return $.post("/admin/add/article/" + id, {
-        value: value
+        content: value,
+        sequence: id
       }).done(function(result) {
         return console.log(result);
       });
