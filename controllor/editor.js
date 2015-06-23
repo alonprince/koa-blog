@@ -9,9 +9,12 @@ module.exports = {
         });
         post.save(function(err, post) {
             console.log(post);
-            _this.body = {
-                result: 'success'
-            }
+            // _this.body = {
+            //     result: 'success'
+            // }
         });
+        this.body = {
+            result: 'success'
+        }
     }
 }

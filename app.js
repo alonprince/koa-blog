@@ -15,6 +15,10 @@ var db = mongoose.connection;
 
 db.once('open', function() {
     console.log('connect to mongodb');
+});
+
+db.on('error', function() {
+    console.log('database connect error');
 })
 
 app.keys = ['phishing']
