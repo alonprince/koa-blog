@@ -33,10 +33,10 @@ app.use(function *(next){
 
 app.use(bodyParser());
 
-app.use(function *(next) {
-    this.body = this.request.body;
-    yield next;
-});
+// app.use(function *(next) {
+//     this.request = this.request.body;
+//     yield next;
+// });
 
 // 设置render参数
 app.use(jade.middleware({

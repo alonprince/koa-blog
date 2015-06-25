@@ -1,20 +1,18 @@
 var Post = require('../model/post.js');
+var thunkify = require('thunkify');
+
 
 module.exports = {
     saveArticle: function *(next) {
         var _this = this;
         var post = new Post({
-            content: this.body.content,
-            sequence: this.body.sequence
+            content: this.request.body.content,
+            sequence: this.request.body.sequence
         });
-        post.save(function(err, post) {
-            console.log(post);
-            // _this.body = {
-            //     result: 'success'
-            // }
-        });
+        var save = thunkify(post.save);
+        yield save();
         this.body = {
-            result: 'success'
-        }
+            result: 'hahahah'
+        };
     }
 }

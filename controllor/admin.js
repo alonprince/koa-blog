@@ -5,7 +5,7 @@ module.exports = {
         })
     },
     adminLogin: function *(next) {
-        if (this.body.username === 'admin' && this.body.password === 'wangheng') {
+        if (this.request.body.username === 'admin' && this.request.body.password === 'wangheng') {
             this.cookies.set('isAdmin', 'yes he is', {
                 signed: true,
                 expires: new Date(Date.now() + 7 * 24 * 3600000)
