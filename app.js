@@ -4,7 +4,8 @@ var app = require('koa')(),
     jade = require('koa-jade'),
     serve = require('koa-static'),
     bodyParser = require('koa-bodyparser'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    moment = require('moment');
 var port = process.env.PORT || 8000;
 
 const MONGO_URL = 'mongodb://localhost/blog';
@@ -45,7 +46,9 @@ app.use(jade.middleware({
     pretty: '  ',
     compileDebug: false,
     noCache: process.env === 'development',
-    // locals: global_locals_for_all_pages,
+    locals: {
+        moment: moment
+    },
     basedir: `${__dirname}/views/extends`,
     // helperPath: [
     //     'path/to/jade/helpers',

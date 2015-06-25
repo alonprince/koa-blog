@@ -16,7 +16,7 @@ do ->
         id = this.dataset.id
         $.post "/admin/add/article/#{id}", {
             content: value
-            sequence: id
+            _id: id
         } 
         .done (result) ->
             console.log result

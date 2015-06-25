@@ -1,3 +1,6 @@
+var Post = require('../model/post.js');
+var moment = require('moment');
+
 module.exports = {
     adminPage: function *(next) {
         this.render('admin', {}, {
@@ -14,13 +17,19 @@ module.exports = {
         };
     },
     dashboard: function *(next) {
-        this.render('dashboard', {}, {
+        var result = yield Post.fetch.bind(Post);
+        this.render('dashboard', {
+            posts: result
+        }, {
             pretty: '  '
         });
     },
     editPage: function *(next) {
+        var _id = this.params.id;
+        var post = yield Post.findById(_id);
         this.render('edit', {
-            id: this.params.id
+            id: this.params.id,
+            content: decodeURIComponent(post.content)
         }, {
             pretty: '  '
         })

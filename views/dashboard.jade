@@ -14,10 +14,10 @@ block content
                     th.center 时间 
                     th.center 操作
             tbody
-                each i in [{title: 'a', time: '2015-05-22', id: "123123"}, {title: 'a', time: '2015-05-22', id: "123123"}, {title: 'a', time: '2015-05-22', id: "123123"}]
+                each i in posts
                     tr(data-id=i.id)
                         td= i.title
-                        td= i.time
+                        td #{moment(i.created).format('YYYY-MM-DD HH:mm:ss')}
                         td
                             a.edit-article.button.button-small.mr1(href="/admin/edit/" + i.id) 修改
                             a.delete-article.button.button-small(href="#") 删除 

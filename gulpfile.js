@@ -20,7 +20,8 @@ var devPath = {
     img: 'public/img/',
     controllor: 'controllor/**/*.js',
     model: 'model/**/*.js',
-    schemas: 'schemas/**/*.js'
+    schemas: 'schemas/**/*.js',
+    lib: 'lib/**/*.js'
 }
 var outPath = {
     client: 'public/js/',

@@ -18,13 +18,19 @@ Post.pre('save', function (next) {
 })  
 
 Post.statics = {
-    find: function(query, cb) {
+    fetch: function(query, cb) {
         query = query || {};
         return this.find(query)
                 .sort({
                     created: -1
                 })
                 .exec(cb)
+    },
+    findById: function(id, cb) {
+        return this.findOne({
+            _id: id
+        })
+        .exec(cb)
     }
 }
 
