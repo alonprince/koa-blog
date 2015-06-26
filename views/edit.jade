@@ -6,6 +6,8 @@ block content
     .full-height.relative
         nav.white.bg-black.clearfix.absolute.left-0.right-0.full-width
             .sm-col
+                label.h4.m1(for="title") 标题
+                input#title.m1.no-outline.bg-transparent.white(type="text", value="#{title || ''}", placeHolder="这里输入标题")
             .sm-col-right
                 a.button.bg-gray.m1(href="/admin/dashboard") cancel
                 a.button.m1#save(data-id='#{id}') save

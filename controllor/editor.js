@@ -6,6 +6,7 @@ module.exports = {
         var _id = this.request.body._id;
         var post = yield Post.findById(_id);
         post.content = this.request.body.content;
+        post.title = this.request.body.title;
         yield post.save(post);
         this.body = resHelper.right({
             _id: post._id

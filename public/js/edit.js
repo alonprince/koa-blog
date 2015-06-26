@@ -1,9 +1,11 @@
 (function() {
-  var oInput, oPreview;
+  var oInput, oPreview, oTitle;
 
   oInput = document.getElementById('text-input');
 
   oPreview = document.getElementById('preview');
+
+  oTitle = document.getElementById('title');
 
   (function() {
     var Editor;
@@ -21,12 +23,14 @@
     var $save;
     $save = $('#save');
     return $save.click(function() {
-      var id, value;
+      var id, title, value;
       value = encodeURIComponent(oInput.value);
       id = this.dataset.id;
+      title = oTitle.value || '暂未命名';
       return $.post("/admin/add/article/" + id, {
         content: value,
-        _id: id
+        _id: id,
+        title: title
       }).done(function(result) {
         return console.log(result);
       });

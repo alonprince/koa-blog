@@ -5,7 +5,8 @@ var Post = new Schema({
     content: String,
     created: Date,
     history: { type: Array, default:[] },
-    updated: Date
+    updated: Date,
+    title: String
 })
 
 Post.pre('save', function (next) {

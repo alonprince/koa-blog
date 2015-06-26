@@ -11,6 +11,15 @@ body {
 .bg-fixed {
   background-attachment: fixed;
 }
+.bg-transparent {
+  background: transparent;
+}
+.no-border {
+  border: none;
+}
+.no-outline {
+  outline: none;
+}
 .no-decoration:hover {
   text-decoration: none;
 }
