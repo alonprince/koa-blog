@@ -28,10 +28,12 @@ module.exports = function(app) {
 
     router.get('/admin/edit/:id', auth.isLogin, admin.editPage);
 
-    router.get('/admin/add/article', auth.isLogin, admin.addArticle);
-
     // CURD
+    router.get('/admin/add/article', auth.isLogin, editor.addArticle);
+
     router.post('/admin/add/article/:id', auth.isLogin, editor.saveArticle);
+
+    router.post('/admin/delete/article', auth.isLogin, editor.delArticle);
 
     // about
     router.get('/about', function *(next) {

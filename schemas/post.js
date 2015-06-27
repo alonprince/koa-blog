@@ -1,12 +1,13 @@
 var Schema = require('mongoose').Schema;
 
 var Post = new Schema({
-    sequence: { tpye: Number, min: 0 },
+    sequence: Number,
     content: String,
     created: Date,
     history: { type: Array, default:[] },
     updated: Date,
-    title: String
+    title: String,
+    status: { type: Number, default: 1 }
 })
 
 Post.pre('save', function (next) {
@@ -20,7 +21,7 @@ Post.pre('save', function (next) {
 
 Post.statics = {
     fetch: function(query, cb) {
-        query = query || {};
+        query = query || {status: 1};
         return this.find(query)
                 .sort({
                     created: -1

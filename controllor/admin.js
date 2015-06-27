@@ -17,7 +17,7 @@ module.exports = {
         };
     },
     dashboard: function *(next) {
-        var result = yield Post.fetch.bind(Post);
+        var result = yield Post.fetch();
         this.render('dashboard', {
             posts: result
         }, {
@@ -29,12 +29,10 @@ module.exports = {
         var post = yield Post.findById(_id);
         this.render('edit', {
             id: this.params.id,
-            content: decodeURIComponent(post.content)
+            content: decodeURIComponent(post.content),
+            title: post.title
         }, {
             pretty: '  '
         })
-    },
-    addArticle: function *(next) {
-        this.redirect('/admin/edit/' + _getNewArticleId());
     }
 }

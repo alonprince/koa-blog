@@ -20,4 +20,6 @@ block content
                         td #{moment(i.created).format('YYYY-MM-DD HH:mm:ss')}
                         td
                             a.edit-article.button.button-small.mr1(href="/admin/edit/" + i.id) 修改
-                            a.delete-article.button.button-small(href="#") 删除 
+                            form.inline(action="/admin/delete/article" method="post")
+                                input(type="hidden", name="_id", value="#{i.id}")
+                                input.delete-article.button.button-small(type="submit", value="删除")
