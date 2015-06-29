@@ -1,0 +1,20 @@
+extends extends/layout.jade
+block css
+    link(rel="stylesheet", href="/css/detail.css")
+    link(rel="stylesheet", href="/github-markdown-css/github-markdown.css")
+block content
+    header.white.bg-gray.bg-cover.bg-center.welcome.bg-fixed.full-height#header
+        div.center.px2.py4.shadow.full-height
+            h1.h1.h0-responsive.caps.mt4.mb0.regular PHISHING
+            p.h3 A Blog Write By Phishing
+            a.h3.button.mt1.button-outline(href="#") Look
+    section.container.content.clearfix.p4#content
+        each i in posts
+            .article-item.mx-auto.sm-col-8.py2.op03(data-sr=i.sr)
+                h3.h1.mb2.ml2
+                    a.bold.regular.black.no-decoration(href="/articles/#{i._id}") #{i.title || '暂无标题'}
+                p.h4.regular.gray #{i.preview}
+
+    include extends/footer.jade
+block js
+    script(src="/js/detail.js")

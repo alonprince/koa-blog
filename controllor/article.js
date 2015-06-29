@@ -15,5 +15,14 @@ module.exports = {
         }, {
             pretty: '  '
         });
+    },
+    detail: function *(next) {
+        var id = this.params.id;
+        var article = yield Post.findById(id)
+        this.render('detail', {
+            article: article
+        }, {
+            pretty: '  '
+        })
     }
 }
