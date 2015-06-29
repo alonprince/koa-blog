@@ -4,6 +4,7 @@ block css
 block content
     nav.white.bg-black.clearfix
         .sm-col
+            a.m1.h1.gray.ml3(href="/") Index
         .sm-col-right
             a.button.m1(href="/admin/add/article") Add
     .overflow-scroll.p4.full-height
@@ -20,6 +21,46 @@ block content
                         td #{moment(i.created).format('YYYY-MM-DD HH:mm:ss')}
                         td
                             a.edit-article.button.button-small.mr1(href="/admin/edit/" + i.id) 修改
+                            form.inline(action="/admin/recycle/article" method="post")
+                                input(type="hidden", name="_id", value="#{i.id}")
+                                input.delete-article.button.button-small(type="submit", value="下线")
+        h3.mt4 未发布
+        hr.m1
+        table.table-light.overflow-hidden.bg-white.border.rounded.center
+            thead.bg-darken-1
+                tr
+                    th.center 名称
+                    th.center 时间 
+                    th.center 操作
+            tbody
+                each i in recPosts
+                    tr(data-id=i.id)
+                        td= i.title
+                        td #{moment(i.created).format('YYYY-MM-DD HH:mm:ss')}
+                        td
+                            a.edit-article.button.button-small.mr1(href="/admin/edit/" + i.id) 修改
+                            form.inline(action="/admin/publish/article" method="post")
+                                input(type="hidden", name="_id", value="#{i.id}")
+                                input.delete-article.button.button-small(type="submit", value="上线")
                             form.inline(action="/admin/delete/article" method="post")
                                 input(type="hidden", name="_id", value="#{i.id}")
                                 input.delete-article.button.button-small(type="submit", value="删除")
+        h3.mt4 已删除
+        hr.m1
+        table.table-light.overflow-hidden.bg-white.border.rounded.center
+            thead.bg-darken-1
+                tr
+                    th.center 名称
+                    th.center 时间 
+                    th.center 操作
+            tbody
+                each i in delPosts
+                    tr(data-id=i.id)
+                        td= i.title
+                        td #{moment(i.created).format('YYYY-MM-DD HH:mm:ss')}
+                        td
+                            a.edit-article.button.button-small.mr1(href="/admin/edit/" + i.id) 修改
+                            form.inline(action="/admin/recycle/article" method="post")
+                                input(type="hidden", name="_id", value="#{i.id}")
+                                input.delete-article.button.button-small(type="submit", value="恢复")
+

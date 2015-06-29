@@ -12,7 +12,7 @@ block content
                 a.button.bg-gray.m1(href="/admin/dashboard") cancel
                 a.button.m1#save(data-id='#{id}') save
         .editor.full-height
-            textarea#text-input.left.full-height.half-width.p2(oninput="this.editor.update()", rows="6", cols="60") #{content || 'Type **Markdown** here.'}
+            textarea#text-input.left.full-height.half-width.p2(oninput="this.editor.update()", rows="6", cols="60", placeHolder="这里输入内容") #{content || ''}
             .markdown-body.right.full-height.half-width.border-left.border-olive.p2
                 #preview
 

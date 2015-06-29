@@ -16,10 +16,13 @@ do ->
         value = encodeURIComponent oInput.value
         id = this.dataset.id
         title = oTitle.value || '暂未命名'
+        preview = $ oPreview
+                    .text()
         $.post "/admin/add/article/#{id}", {
             content: value
             _id: id
             title: title
+            preview: preview
         } 
         .done (result) ->
             console.log result

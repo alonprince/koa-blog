@@ -18,8 +18,12 @@ module.exports = {
     },
     dashboard: function *(next) {
         var result = yield Post.fetch();
+        var recPosts = yield Post.fetch({status: 0});
+        var delPosts = yield Post.fetch({status: -1});
         this.render('dashboard', {
-            posts: result
+            posts: result,
+            recPosts: recPosts,
+            delPosts: delPosts
         }, {
             pretty: '  '
         });

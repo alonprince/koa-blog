@@ -8,11 +8,11 @@ block content
             p.h3 A Blog Write By Phishing
             a.h3.button.mt1.button-outline(href="#") Look
     section.container.content.clearfix.p4#content
-        each i in [{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;', sr: 'scale up 20%'},{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;', sr: 'roll 15deg'},{href: '#',title: 'this is a title',cont: 'these are content;these are content;these are content;these are content;these are content;these are content;', sr: 'spin 180deg'}]
+        each i in posts
             .article-item.mx-auto.sm-col-8.py2.op03(data-sr=i.sr)
                 h3.h1.mb2.ml2
-                    a.bold.regular.black.no-decoration(href=i.href)= i.title
-                p.h4.regular.gray= i.cont
+                    a.bold.regular.black.no-decoration(href="/articles/#{i._id}") #{i.title || '暂无标题'}
+                p.h4.regular.gray #{i.preview}
 
     include extends/footer.jade
 block js
